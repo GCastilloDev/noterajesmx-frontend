@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="primary"
+      :color="color"
       dark
     >
       <div class="d-flex align-center">
@@ -38,23 +38,25 @@
     </v-app-bar>
 
     <v-content>
-      <HelloWorld/>
+      <router-view></router-view>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 
 export default {
   name: 'App',
-
-  components: {
-    HelloWorld,
-  },
-
   data: () => ({
-    //
+    color: "pink"
   }),
+  methods: {
+    handleScroll() {
+      return this.color = window.scrollY>10 ? "red" : "pink"
+    }
+  },
+  created () {
+  window.addEventListener('scroll', this.handleScroll);
+}
 };
 </script>
