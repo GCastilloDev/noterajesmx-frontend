@@ -1,6 +1,5 @@
 <template>
-  <v-app>
-    
+  <v-app>    
     <Menu></Menu>
     <v-content>
       <router-view></router-view>
@@ -30,3 +29,8 @@ export default {
 }
 };
 </script>
+
+<style lang="css">
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
+</style>

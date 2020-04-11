@@ -10,7 +10,7 @@ Vue.use(VueAxios, axios);
 
 Vue.config.productionTip = false
 
-new Vue({
+export  const el = new Vue({
   router,
   store,
   vuetify,
