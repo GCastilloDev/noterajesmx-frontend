@@ -1,4 +1,5 @@
 <template>
+<!-- COMPONENTE BANNER CON ANIMACIÓN -->
     <v-row align="center" class="banner">
       <v-col cols="12" md="5" justify="center" align="center" align-content="center">
         <img src="@/assets/team.svg" width="80%" />
