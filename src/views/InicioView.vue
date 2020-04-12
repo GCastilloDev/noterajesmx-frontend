@@ -5,6 +5,7 @@
     <!-- CARDS MIENTRAS CARGA -->
     <CardLoad :numberCards="numberCards" v-show="!showCards" />
     <!-- CARDS -->
+    <h2>PRUEBA</h2>
     <CardCategory :data="apiRequest"/>
     <!-- SPONSOR -->
     <Sponsor />
