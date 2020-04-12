@@ -3,7 +3,7 @@
     <!-- COMPONENTE DE BANNER -->
     <Banner />
     <!-- CARDS MIENTRAS CARGA -->
-    
+    <CardLoad :numberCards="numberCards" v-show="!showCards" />
     <!-- CARDS -->
     <!-- <v-row class="blue-grey">
       <v-container>
@@ -20,17 +20,23 @@
 import CardCategoria from "../components/CardCategoria";
 import Banner from "../components/Banner"
 import Sponsor from "../components/Sponsor"
+import CardLoad from "../components/CardLoad"
 
 export default {
   name: "Inicio",
   components: {
     CardCategoria,
     Banner,
-    Sponsor
+    Sponsor,
+    CardLoad
   },
   data: () => ({
-    categorieNumber: 16
-  })
+    numberCards: 16,
+    showCards: false
+  }),
+  methods: {
+    
+  }
 };
 </script>
 
