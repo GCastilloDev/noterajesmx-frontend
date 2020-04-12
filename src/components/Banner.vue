@@ -23,6 +23,7 @@
 
 .banner {
   background-color: #F5F5F5;
+  padding-top: 56px;
 }
 
 .animacion {

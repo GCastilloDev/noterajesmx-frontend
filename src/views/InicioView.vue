@@ -32,32 +32,44 @@ export default {
     apiRequest: []
   }),
   methods: {
+    /**
+     * Función asincrona, para mandar a llamar las categorías que se tienen
+     * desde la api.
+     */
     async getDataAPI() {
       try {
         let response = await axios.get(
           "https://lucy-coatza.herokuapp.com/categories/"
         );
-        console.log(response);
+        //console.log(response);
         await this.llenarObjeto(response);
+        // Se cambia la variable para mostrar el componente de cards
+        // lleno y quitar el de cards load
         this.showCards = true;
       } catch (error) {
-        console.log(error);
+        //console.log(error);
       }
     },
+    /**
+     * Función asincrona que recibe el response de la api,
+     * y que genera un objeto que se manda mediante props
+     * al componente de cards category para que se pueda
+     * llenar.
+     */
     async llenarObjeto(response) {
       let data = [];
       await response.data.forEach((element, index) => {
         data.push({
           name: element.name,
-          src: require("@/assets/img/categories/" + element.svg),
-          color: (index + 1) % 2 == 0 ? "deep-purple " : "deep-orange darken-1"
+          src: require("@/assets/img/categories/" + element.svg)
         });
       });
       this.apiRequest = data;
-      //console.log(data);
     }
   },
   created() {
+    // Después de crear el renderizado del DOM se manda
+    // llamar a la función para llenar los datos de la api
     this.getDataAPI();
   }
 };

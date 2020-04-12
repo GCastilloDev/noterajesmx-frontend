@@ -12,7 +12,7 @@
         >
           <v-hover>
             <template v-slot="{ hover }">
-              <v-card :elevation="hover ? 24 : 6" tile class="prueba">
+              <v-card :elevation="hover ? 24 : 6" tile class="mouse-pointer">
                 <v-img
                   :src="item.src"
                   aspect-ratio="1"
@@ -32,32 +32,7 @@
 <script>
 export default {
   name: "CardCategory",
-  props: ["data"],
-  methods: {
-    async api() {
-      try {
-        let response = await axios.get(
-          "https://lucy-coatza.herokuapp.com/categories/"
-        );
-        console.log(response);
-        await this.llenarObjeto(response);
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    async llenarObjeto(response) {
-      let data = [];
-      await response.data.forEach((element, index) => {
-        data.push({
-          name: element.name,
-          src: require("@/assets/img/categories/" + element.svg),
-          color: (index + 1) % 2 == 0 ? "deep-purple " : "deep-orange darken-1"
-        });
-      });
-      this.apiRequest = data;
-      //console.log(data);
-    }
-  }
+  props: ["data"]
 };
 </script>
 
@@ -70,7 +45,7 @@ export default {
   margin: auto;
 }
 
-.prueba:hover {
+.mouse-pointer:hover {
   cursor: pointer;
 }
 </style>

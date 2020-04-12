@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <v-app-bar
-      app
-      color="grey lighten-2"
-      dark
+  <div>
+    <v-app-bar 
+    app 
+    :dense="dense"
+    flat
+    :class="classComponent"
     >
       <div class="d-flex align-center">
         <v-img
@@ -18,27 +19,31 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
+      <v-btn href="https://github.com/vuetifyjs/vuetify/releases/latest" target="_blank" text>
         <span class="mr-2">Latest Release</span>
         <v-icon>mdi-open-in-new</v-icon>
       </v-btn>
     </v-app-bar>
-    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Menu",
-        data: () => ({
-            color: "dark"
-        })
-    }
+export default {
+  name: "Menu",
+  data: () => ({
+
+  }),
+  props: ["dense","classComponent"]
+};
 </script>
 
 <style lang="css" scoped>
 
+.inactive {
+  background-color: transparent !important;
+}
+
+.active {
+  background-color: rgba(255,255,255,.7) !important;
+}
 </style>
