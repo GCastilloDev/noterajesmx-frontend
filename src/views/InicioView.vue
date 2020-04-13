@@ -20,6 +20,8 @@ import Sponsor from "../components/Sponsor";
 import CardLoad from "../components/CardLoad";
 import OverlayCiudades from "../components/OverlayCiudades"
 
+import { mapMutations } from "vuex"
+
 export default {
   name: "Inicio",
   components: {
@@ -35,6 +37,7 @@ export default {
     apiRequest: []
   }),
   methods: {
+    ...mapMutations(["setCiudad","setOverlay"]),
     /**
      * Función asincrona, para mandar a llamar las categorías que se tienen
      * desde la api.
@@ -68,12 +71,22 @@ export default {
         });
       });
       this.apiRequest = data;
+    },
+
+    getCityLocalStorage() {
+      if(localStorage.city){
+        const ciudad = JSON.parse(localStorage.getItem("city"));
+        this.setCiudad(ciudad);
+      } else {
+        this.setOverlay(true);
+      }
     }
   },
   created() {
     // Después de crear el renderizado del DOM se manda
     // llamar a la función para llenar los datos de la api
     this.getDataAPI();
+    this.getCityLocalStorage();
   }
 };
 </script>

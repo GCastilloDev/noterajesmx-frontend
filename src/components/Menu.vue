@@ -18,7 +18,7 @@
           text
         >
         <v-icon>mdi-map-marker-radius</v-icon>
-          <span class="mr-2">{{ ciudad.ciudad }}</span>
+          <span class="mr-2">{{ ciudad.name }}</span>
         <v-icon>mdi-menu-down</v-icon>  
         </v-btn>
       

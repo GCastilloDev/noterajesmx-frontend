@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     ciudad: "",
     ciudades: null,
-    overlay: true
+    overlay: false
   },
   mutations: {
     setCiudades(state, ciudades) {

@@ -47,7 +47,7 @@ export default {
               ciudad.value = 
               {
                 id: element.id,
-                ciudad: element.name
+                name: element.name
               };
               this.items.push(ciudad);
           });
