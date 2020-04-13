@@ -54,9 +54,12 @@ export default {
           this.loading = false;
           this.disabled = false;          
       },
-
+      guardarLocalStorage() {
+        localStorage.setItem("city", JSON.stringify(this.ciudad));
+      },
       guardarSeleccion() {
         this.setCiudad(this.ciudad);
+        this.guardarLocalStorage();
         this.setOverlay(false);        
       }
   },
@@ -65,7 +68,6 @@ export default {
   },
   created() {
       this.cargarSelect();
-      console.log(this.overlay);
   }
 };
 </script>
