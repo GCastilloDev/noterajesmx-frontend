@@ -14,12 +14,11 @@
 
       <v-spacer></v-spacer>      
         <v-btn
-          href="https://github.com/vuetifyjs/vuetify/releases/latest"
-          target="_blank"
+          @click="setOverlay(true)"
           text
         >
         <v-icon>mdi-map-marker-radius</v-icon>
-          <span class="mr-2">Latest Release</span>
+          <span class="mr-2">{{ ciudad.ciudad }}</span>
         <v-icon>mdi-menu-down</v-icon>  
         </v-btn>
       
@@ -28,18 +27,22 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
   name: "Menu",
   data: () => ({}),
-  props: ["dense", "classComponent"]
+  props: ["dense", "classComponent"],
+  methods: {
+    ...mapMutations(["setOverlay"])
+  },
+  computed: {
+    ...mapState(["ciudad"])
+  }
 };
 </script>
 
 <style lang="css" scoped>
-.prueba {
-  z-index: 5 !important;
-}
-
 .inactive {
   background-color: transparent !important;
 }

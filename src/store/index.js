@@ -6,12 +6,19 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    ciudad: null,
-    ciudades: null
+    ciudad: "",
+    ciudades: null,
+    overlay: true
   },
   mutations: {
     setCiudades(state, ciudades) {
       state.ciudades = ciudades;
+    },
+    setCiudad(state, ciudad) {
+      state.ciudad = ciudad;
+    },
+    setOverlay(state, overlay) {
+      state.overlay = overlay;
     }
   },
   actions: {

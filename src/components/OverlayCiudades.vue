@@ -1,11 +1,12 @@
 <template>
   <v-row justify="center">
-    <v-overlay :z-index="zIndex" :value="overlay">
+    <v-overlay :z-index="zIndex" :value="overlay" opacity=".8">
       <v-row justify="center">
         <v-col cols="12" align="center">
           <p>
             <v-select
               :loading="loading"
+              v-model="ciudad"
               loader-height="3"
               :disabled="disabled"
               :items="items"
@@ -14,7 +15,7 @@
               prepend-icon="mdi-map-marker-radius"
               label="Selecciona una ciudad"
               dense
-              @change="overlay = false"
+              @change="guardarSeleccion"
             ></v-select>
           </p>
         </v-col>
@@ -24,35 +25,47 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex"
+import { mapActions, mapState, mapMutations } from "vuex"
 export default {
   name: "OverlayCiudades",
   data: () => ({
+    ciudad: "",
     zIndex: 999,
-    overlay: true,
     items: [],
     loading: true,
     disabled: true
   }),
   methods: {
       ...mapActions(["getCiudades"]),
+      ...mapMutations(["setCiudad", "setOverlay"]),
+
       async cargarSelect() {
           await this.getCiudades();
           await this.ciudades.forEach(element => {
               let ciudad = {};
               ciudad.text = element.name;
-              ciudad.value = element.id;
+              ciudad.value = 
+              {
+                id: element.id,
+                ciudad: element.name
+              };
               this.items.push(ciudad);
           });
           this.loading = false;
           this.disabled = false;          
+      },
+
+      guardarSeleccion() {
+        this.setCiudad(this.ciudad);
+        this.setOverlay(false);        
       }
   },
   computed: {
-      ...mapState(["ciudades"])
+      ...mapState(["ciudades","overlay"])
   },
   created() {
       this.cargarSelect();
+      console.log(this.overlay);
   }
 };
 </script>
