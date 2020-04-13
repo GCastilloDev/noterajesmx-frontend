@@ -1,7 +1,7 @@
 <template>
   <div class="deep-purple lighten-5">
     <v-container>
-      <v-row dense>
+      <v-row>
         <v-col
           cols="4"
           md="2"

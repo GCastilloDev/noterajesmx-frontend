@@ -14,7 +14,6 @@ import Menu from "./components/Menu"
 export default {
   name: 'App',
   data: () => ({
-    color: "pink",
     scroll: false,
     classComponent: "inactive"
   }),
@@ -23,10 +22,9 @@ export default {
   },
   methods: {
     handleScroll() {
-      const alto = window.scrollY;
+      let alto = window.scrollY;
       this.scroll  = alto > 89 ? true : false;
-      this.classComponent = alto > 89 ? "active" : "inactive";
-      //return this.color = window.scrollY>10 ? "red" : "pink"
+      this.classComponent = alto > 50 ? "active" : "inactive";
     }
   },
   created () {

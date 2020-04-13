@@ -1,11 +1,12 @@
 <template>
   <div>
+    <OverlayCiudades />
     <!-- COMPONENTE DE BANNER -->
     <Banner />
     <!-- CARDS MIENTRAS CARGA -->
     <CardLoad :numberCards="numberCards" v-show="!showCards" />
     <!-- CARDS -->
-    <CardCategory :data="apiRequest"/>
+    <CardCategory :data="apiRequest" />
     <!-- SPONSOR -->
     <Sponsor />
   </div>
@@ -17,6 +18,7 @@ import CardCategory from "../components/CardCategory";
 import Banner from "../components/Banner";
 import Sponsor from "../components/Sponsor";
 import CardLoad from "../components/CardLoad";
+import OverlayCiudades from "../components/OverlayCiudades"
 
 export default {
   name: "Inicio",
@@ -24,7 +26,8 @@ export default {
     CardCategory,
     Banner,
     Sponsor,
-    CardLoad
+    CardLoad,
+    OverlayCiudades
   },
   data: () => ({
     numberCards: 16,
@@ -47,7 +50,7 @@ export default {
         // lleno y quitar el de cards load
         this.showCards = true;
       } catch (error) {
-        //console.log(error);
+        console.log(error);
       }
     },
     /**
