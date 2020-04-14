@@ -1,5 +1,5 @@
 <template>
-  <div class="deep-purple lighten-5">
+  <div class="preguntas-frecuentes deep-purple lighten-5">
     <v-container>
         <h3 class="text-center sponsor-title">Preguntas frecuentes</h3>
       <v-expansion-panels v-model="panel">
@@ -49,6 +49,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.preguntas-frecuentes {
+  padding-bottom: 2rem;
+}
+
 .icono {
   color: #71009f !important;
 }
