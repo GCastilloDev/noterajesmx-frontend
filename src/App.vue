@@ -5,12 +5,14 @@
       <OverlayCiudades />
       <router-view></router-view>
     </v-content>
+    <Footer />
   </v-app>
 </template>
 
 <script>
 import Menu from "./components/Menu";
 import OverlayCiudades from "./components/OverlayCiudades";
+import Footer from "./components/Footer"
 
 import { mapMutations } from "vuex";
 
@@ -22,7 +24,8 @@ export default {
   }),
   components: {
     Menu,
-    OverlayCiudades
+    OverlayCiudades,
+    Footer
   },
   methods: {
     ...mapMutations(["setCiudad", "setOverlay"]),
