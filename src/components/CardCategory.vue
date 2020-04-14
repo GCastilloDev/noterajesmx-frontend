@@ -12,7 +12,9 @@
         >
           <v-hover>
             <template v-slot="{ hover }">
-              <v-card :elevation="hover ? 24 : 6" tile class="mouse-pointer">
+              <v-card 
+              @click="goCategory(item.id, item.name)"
+              :elevation="hover ? 24 : 6" tile class="mouse-pointer">
                 <v-img
                   :src="item.src"
                   aspect-ratio="1"
@@ -22,7 +24,7 @@
                 <div class="titulo">{{item.name}}</div>
               </v-card>
             </template>
-          </v-hover>
+          </v-hover>  
         </v-col>
       </v-row>
     </v-container>
@@ -30,14 +32,28 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "CardCategory",
-  props: ["data"]
+  props: ["data", "ciudad"],
+  methods: {
+    ...mapMutations(["setCategoria"]),
+    goCategory(idCategoria, categoria) {
+      this.setCategoria(categoria);
+      this.$router.push({
+        name: "categoria",
+        params: {
+          categoria: idCategoria,
+          idCiudad: this.ciudad
+        }
+      })
+    }
+  }
 };
 </script>
 
 <style lang="css" scoped>
-
 .titulo {
   padding: 0.2rem;
   text-align: center;

@@ -8,7 +8,9 @@ export default new Vuex.Store({
   state: {
     ciudad: "",
     ciudades: null,
-    overlay: false
+    overlay: false,
+    ruta: null,
+    categoria: null
   },
   mutations: {
     setCiudades(state, ciudades) {
@@ -19,6 +21,12 @@ export default new Vuex.Store({
     },
     setOverlay(state, overlay) {
       state.overlay = overlay;
+    },
+    setRuta(state, ruta) {
+      state.ruta = ruta;
+    },
+    setCategoria(state, categoria) {
+      state.categoria = categoria;
     }
   },
   actions: {

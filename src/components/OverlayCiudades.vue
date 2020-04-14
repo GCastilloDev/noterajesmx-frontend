@@ -60,11 +60,21 @@ export default {
       guardarSeleccion() {
         this.setCiudad(this.ciudad);
         this.guardarLocalStorage();
-        this.setOverlay(false);        
+        this.setOverlay(false);
+        if(this.ruta.name === "categoria"){
+          this.$router.push(
+            {
+              name: 'categoria',
+              params: {
+                categoria: this.ruta.params.categoria,
+                idCiudad: this.ciudad.id
+              }
+            })
+        }        
       }
   },
   computed: {
-      ...mapState(["ciudades","overlay"])
+      ...mapState(["ciudades","overlay","ruta"])
   },
   created() {
       this.cargarSelect();

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <OverlayCiudades />
     <!-- COMPONENTE DE BANNER -->
     <Banner />
     <!-- CARDS MIENTRAS CARGA -->
+    {{ $route.name }}
     <CardLoad :numberCards="numberCards" v-show="!showCards" />
     <!-- CARDS -->
-    <CardCategory :data="apiRequest" />
+    <CardCategory :data="apiRequest" :ciudad="ciudad.id" />
     <!-- SPONSOR -->
     <Sponsor />
   </div>
@@ -18,9 +18,8 @@ import CardCategory from "../components/CardCategory";
 import Banner from "../components/Banner";
 import Sponsor from "../components/Sponsor";
 import CardLoad from "../components/CardLoad";
-import OverlayCiudades from "../components/OverlayCiudades"
 
-import { mapMutations } from "vuex"
+import { mapMutations, mapState } from "vuex"
 
 export default {
   name: "Inicio",
@@ -28,8 +27,7 @@ export default {
     CardCategory,
     Banner,
     Sponsor,
-    CardLoad,
-    OverlayCiudades
+    CardLoad
   },
   data: () => ({
     numberCards: 16,
@@ -37,7 +35,7 @@ export default {
     apiRequest: []
   }),
   methods: {
-    ...mapMutations(["setCiudad","setOverlay"]),
+     ...mapMutations(["setRuta"]),
     /**
      * Función asincrona, para mandar a llamar las categorías que se tienen
      * desde la api.
@@ -47,7 +45,7 @@ export default {
         let response = await axios.get(
           "https://lucy-coatza.herokuapp.com/categories/"
         );
-        //console.log(response);
+        console.log(response.data);
         await this.llenarObjeto(response);
         // Se cambia la variable para mostrar el componente de cards
         // lleno y quitar el de cards load
@@ -66,27 +64,25 @@ export default {
       let data = [];
       await response.data.forEach((element, index) => {
         data.push({
+          id: element.id,
           name: element.name,
           src: require("@/assets/img/categories/" + element.svg)
         });
       });
       this.apiRequest = data;
     },
-
-    getCityLocalStorage() {
-      if(localStorage.city){
-        const ciudad = JSON.parse(localStorage.getItem("city"));
-        this.setCiudad(ciudad);
-      } else {
-        this.setOverlay(true);
-      }
-    }
+  },
+  computed: {
+    ...mapState(["ciudad"])
   },
   created() {
     // Después de crear el renderizado del DOM se manda
     // llamar a la función para llenar los datos de la api
     this.getDataAPI();
-    this.getCityLocalStorage();
+    console.log(this.ciudad);
+  },
+  mounted() {
+    this.setRuta({name: this.$route.name, params: this.$route.params});
   }
 };
 </script>
