@@ -3,7 +3,6 @@
     <!-- COMPONENTE DE BANNER -->
     <Banner />
     <!-- CARDS MIENTRAS CARGA -->
-    {{ $route.name }}
     <CardLoad :numberCards="numberCards" v-show="!showCards" />
     <!-- CARDS -->
     <CardCategory :data="apiRequest" :ciudad="ciudad.id" />

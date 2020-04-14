@@ -1,16 +1,13 @@
 <template>
   <div>
     <BannerCategoria :imagen="imagen" v-show="imagen != ''"/>
-    <h1>Lista Categoria</h1>
-    <h3>{{ $route.name }}</h3>
-    <ul>
-      <li v-for="(negocio, index) in negocios" :key="index">{{negocio.name}}</li>
-    </ul>
+    <CardNegocio :data="negocios"/>
   </div>
 </template>
 
 <script>
 import BannerCategoria from "../components/BannerCategoria";
+import CardNegocio from "../components/CardNegocio"
 
 import { mapMutations } from "vuex";
 
@@ -23,7 +20,8 @@ export default {
     imagen: ""
   }),
   components: {
-    BannerCategoria
+    BannerCategoria,
+    CardNegocio
   },
   methods: {
     ...mapMutations(["setRuta"]),
@@ -34,11 +32,11 @@ export default {
         const response = await axios.get(
           `http://lucy-coatza.herokuapp.com/category/${categoria}/city/${idCiudad}`
         );
-        this.negocios = response.data.negocios;
-        this.imagen = {
+        this.negocios = await response.data.negocios;
+        this.imagen =  await {
           src: require("@/assets/img/categories/" + response.data.avatar)
         };
-        console.warn(this.imagen);
+        console.log(this.negocios);
       } catch (error) {
         console.log(error);
       }

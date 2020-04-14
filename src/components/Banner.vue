@@ -28,6 +28,7 @@
 
 .animacion {
   font-family: 'Raleway', sans-serif;
+  font-weight: 800;
   display:inline-block;
   overflow:hidden;
   white-space:nowrap;

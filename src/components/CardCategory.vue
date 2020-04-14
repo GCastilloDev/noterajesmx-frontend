@@ -12,9 +12,12 @@
         >
           <v-hover>
             <template v-slot="{ hover }">
-              <v-card 
-              @click="goCategory(item.id, item.name)"
-              :elevation="hover ? 24 : 6" tile class="mouse-pointer">
+              <v-card
+                @click="goCategory(item.id, item.name)"
+                :elevation="hover ? 24 : 6"
+                tile
+                class="mouse-pointer"
+              >
                 <v-img
                   :src="item.src"
                   aspect-ratio="1"
@@ -24,7 +27,7 @@
                 <div class="titulo">{{item.name}}</div>
               </v-card>
             </template>
-          </v-hover>  
+          </v-hover>
         </v-col>
       </v-row>
     </v-container>
@@ -47,7 +50,7 @@ export default {
           categoria: idCategoria,
           idCiudad: this.ciudad
         }
-      })
+      });
     }
   }
 };
@@ -57,8 +60,8 @@ export default {
 .titulo {
   padding: 0.2rem;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
   font-weight: 400;
-  margin: auto;
 }
 
 .mouse-pointer:hover {

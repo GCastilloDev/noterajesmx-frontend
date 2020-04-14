@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="css">
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
 
 .margen {

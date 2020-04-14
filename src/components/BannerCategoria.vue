@@ -30,8 +30,8 @@ import { mapState } from "vuex"
 
 .categoria-title {
   font-family: 'Raleway', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
-  white-space:nowrap;
   font-size: 2.5rem;
   color:#71009F;
 }
