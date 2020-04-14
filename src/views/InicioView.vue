@@ -8,6 +8,8 @@
     <CardCategory :data="apiRequest" :ciudad="ciudad.id" />
     <!-- SPONSOR -->
     <Sponsor />
+    <!-- PREGUNTAS FRECUENTES -->
+    <PreguntasFrecuentes />
   </div>
 </template>
 
@@ -17,6 +19,7 @@ import CardCategory from "../components/CardCategory";
 import Banner from "../components/Banner";
 import Sponsor from "../components/Sponsor";
 import CardLoad from "../components/CardLoad";
+import PreguntasFrecuentes from "../components/PreguntasFrecuentes"
 
 import { mapMutations, mapState } from "vuex"
 
@@ -26,7 +29,8 @@ export default {
     CardCategory,
     Banner,
     Sponsor,
-    CardLoad
+    CardLoad,
+    PreguntasFrecuentes
   },
   data: () => ({
     numberCards: 16,

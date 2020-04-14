@@ -1,32 +1,27 @@
 <template>
-  <v-row class="blue-grey darken-1" align="center">
-    <v-col cols="12">
-      <h3 class="text-center sponsor-title">Patrocinadores</h3>
-    </v-col>
-    <v-col
-      cols="4"
-      sm="2"
-      justify="center"
-      align="center"
-      align-content="center"
-      v-for="(imagen, index) in imagenes"
-      :key="index"
-    >
-      <a
-      v-if="imagen.href === '#'"
-      :href="imagen.href"
+  <div class="div-sponsor blue-grey darken-1">
+    <v-row align="center">
+      <v-col cols="12">
+        <h3 class="text-center sponsor-title">Patrocinadores</h3>
+      </v-col>
+      <v-col
+        cols="4"
+        sm="2"
+        justify="center"
+        align="center"
+        align-content="center"
+        v-for="(imagen, index) in imagenes"
+        :key="index"
       >
-        <img class="sponsor" :src="imagen.src" :width="imagen.width" />
-      </a>
-      <a
-      v-else
-      :href="imagen.href"
-      target="_blank"
-      >
-        <img class="sponsor" :src="imagen.src" :width="imagen.width" />
-      </a>
-    </v-col>
-  </v-row>
+        <a v-if="imagen.href === '#'" :href="imagen.href">
+          <img class="sponsor" :src="imagen.src" :width="imagen.width" />
+        </a>
+        <a v-else :href="imagen.href" target="_blank">
+          <img class="sponsor" :src="imagen.src" :width="imagen.width" />
+        </a>
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>
@@ -72,10 +67,10 @@ export default {
 
 <style lang="css" scoped>
 .sponsor-title {
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    font-size: 2rem;
-    color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: white;
 }
 .sponsor {
   filter: grayscale(100%);
@@ -86,5 +81,9 @@ export default {
   filter: grayscale(0%);
   width: 72%;
   cursor: pointer;
+}
+
+.div-sponsor {
+  padding-bottom: 2rem;
 }
 </style>
