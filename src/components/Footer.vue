@@ -32,7 +32,7 @@ export default {
       socialNetwork: [
         {
           icono: 'mdi-facebook',
-          link: "https://www.facebook.com/noterajesmxoficial"
+          link: "https://facebook.com/noterajesmxoficial"
         },
         {
           icono: 'mdi-instagram',

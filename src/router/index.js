@@ -13,6 +13,12 @@ Vue.use(VueRouter)
       path: '/categoria/:categoria/ciudad/:idCiudad',
       name: 'categoria',
       component: () => import('../views/ListaCategoriaView.vue')
+    },
+    {
+      // Ruta para página no encontrada
+      path: '*',
+      name: 'error404',
+      component: () => import('../components/Error404.vue')
     }
 ]
 
