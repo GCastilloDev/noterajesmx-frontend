@@ -6,7 +6,7 @@
         </p>
       </v-col>
       <v-col cols="12" md="5" justify="center" align="center" align-content="center">
-        <v-img src="@/assets/img/no_encontrado.svg" width="80%" />
+        <v-img src="https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Fno_encontrado.svg?alt=media&token=c3949cd2-899e-48de-9b57-e458051ca03b" width="80%" />
       </v-col>
     </v-row>
 </template>

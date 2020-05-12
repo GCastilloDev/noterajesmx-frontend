@@ -31,7 +31,6 @@ export default {
   methods: {
     ...mapMutations(["setRuta"]),
     async getNegocios() {
-      console.warn(this.mostrarBannerNoEncontrado);
       this.mostrarBannerNoEncontrado = false;
       this.mostrarCardNegocio = false;
       try {
@@ -40,9 +39,11 @@ export default {
         const response = await axios.get(
           `http://lucy-coatza.herokuapp.com/category/${categoria}/city/${idCiudad}`
         );
+        console.log(response);
         this.negocios = await response.data.negocios;
         this.imagen = await {
-          src: require("@/assets/img/categories/" + response.data.avatar)
+          src: response.data.avatar
+          //src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Flogo-no-te-rajes-mx.png?alt=media&token=600302f1-2411-400f-9ab5-48e9ec9eef09"
         };
         // Comprobar si existen elementos en el arreglo
         this.comprobarCantidadNegocios();
@@ -63,6 +64,7 @@ export default {
   },
   mounted() {
     this.setRuta({ name: this.$route.name, params: this.$route.params });
+    console.log("MOUNTED");
   },
   watch: {
     $route(to, from) {

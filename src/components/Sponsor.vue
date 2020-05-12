@@ -1,6 +1,6 @@
 <template>
   <div class="div-sponsor blue-grey darken-1">
-    <v-row align="center">
+    <v-row align="center" class="prueba">
       <v-col cols="12">
         <h3 class="text-center sponsor-title">Patrocinadores</h3>
       </v-col>
@@ -30,33 +30,33 @@ export default {
   data: () => ({
     imagenes: [
       {
-        src: require("@/assets/logo-no-te-rajes-mx.png"),
+        src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Flogo-no-te-rajes-mx.png?alt=media&token=600302f1-2411-400f-9ab5-48e9ec9eef09",
         width: "75%",
         href: "#"
       },
       {
-        src: require("@/assets/img/sponsor/logo-yso.png"),
+        src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Fsponsor%2Flogo-yso.png?alt=media&token=962bfe26-818c-49bc-9517-cd7947114f28",
         width: "75%",
         href: "http://www.yursoldout.com/"
       },
       {
-        src: require("@/assets/img/sponsor/coacheduonline-logo.png"),
+        src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Fsponsor%2Fcoacheduonline-logo.png?alt=media&token=9ed7198c-5508-4d18-964b-957813930652",
         width: "73%",
         href: "https://www.facebook.com/landyareth"
       },
       {
-        src: require("@/assets/img/sponsor/beekha-logo.png"),
-        width: "75%",
+        src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Fsponsor%2Fbeekha-logo.png?alt=media&token=610f5440-cf40-496c-ac2f-b5c8b2820c80",
+        width: "100%",
         href: "https://www.facebook.com/beekha.mx/"
       },
       {
-        src: require("@/assets/img/sponsor/logoreg10.png"),
-        width: "75%",
+        src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Fsponsor%2Flogoreg10.png?alt=media&token=b9407ad9-6866-4e63-965a-711de8cc0981",
+        width: "100%",
         href: "https://www.facebook.com/MartinJPatinoZamora/"
       },
       {
-        src: require("@/assets/img/sponsor/logo-abril-a-color.png"),
-        width: "75%",
+        src: "https://firebasestorage.googleapis.com/v0/b/no-te-rajes-mx.appspot.com/o/images%2Fsponsor%2Flogo-abril-a-color.png?alt=media&token=068055c1-73d7-4237-9832-84ce3bfa52e2",
+        width: "100%",
         href: "https://abrildg.com/"
       }
     ]
@@ -85,5 +85,9 @@ export default {
 
 .div-sponsor {
   padding-bottom: 2rem;
+}
+
+.prueba {
+  margin: 0px !important;
 }
 </style>

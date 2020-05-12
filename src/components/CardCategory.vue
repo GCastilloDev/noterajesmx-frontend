@@ -59,8 +59,9 @@ export default {
 <style lang="css" scoped>
 .titulo {
   padding: 0.2rem;
+  padding-top: .5rem;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   font-weight: 400;
 }
 

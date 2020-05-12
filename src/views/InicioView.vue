@@ -19,9 +19,9 @@ import CardCategory from "../components/CardCategory";
 import Banner from "../components/Banner";
 import Sponsor from "../components/Sponsor";
 import CardLoad from "../components/CardLoad";
-import PreguntasFrecuentes from "../components/PreguntasFrecuentes"
+import PreguntasFrecuentes from "../components/PreguntasFrecuentes";
 
-import { mapMutations, mapState } from "vuex"
+import { mapActions, mapMutations, mapState } from "vuex";
 
 export default {
   name: "Inicio",
@@ -38,23 +38,20 @@ export default {
     apiRequest: []
   }),
   methods: {
-     ...mapMutations(["setRuta"]),
+    ...mapMutations(["setRuta"]),
+    ...mapActions(["getCategorias"]),
     /**
      * Función asincrona, para mandar a llamar las categorías que se tienen
      * desde la api.
      */
     async getDataAPI() {
-      try {
-        let response = await axios.get(
-          "https://lucy-coatza.herokuapp.com/categories/"
-        );
-        console.log(response.data);
-        await this.llenarObjeto(response);
-        // Se cambia la variable para mostrar el componente de cards
-        // lleno y quitar el de cards load
+      if (this.categorias === "") {
+        await this.getCategorias();
+        await this.llenarObjeto(this.categorias);
         this.showCards = true;
-      } catch (error) {
-        console.log(error);
+      } else {
+        await this.llenarObjeto(this.categorias);
+        this.showCards = true;
       }
     },
     /**
@@ -65,27 +62,26 @@ export default {
      */
     async llenarObjeto(response) {
       let data = [];
-      await response.data.forEach((element, index) => {
+      await response.forEach((element, index) => {
         data.push({
           id: element.id,
           name: element.name,
-          src: require("@/assets/img/categories/" + element.svg)
+          src: element.svg
         });
       });
       this.apiRequest = data;
-    },
+    }
   },
   computed: {
-    ...mapState(["ciudad"])
+    ...mapState(["ciudad", "categorias"])
   },
   created() {
     // Después de crear el renderizado del DOM se manda
     // llamar a la función para llenar los datos de la api
     this.getDataAPI();
-    console.log(this.ciudad);
   },
   mounted() {
-    this.setRuta({name: this.$route.name, params: this.$route.params});
+    this.setRuta({ name: this.$route.name, params: this.$route.params });
   }
 };
 </script>

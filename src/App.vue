@@ -28,7 +28,7 @@ export default {
     Footer
   },
   methods: {
-    ...mapMutations(["setCiudad", "setOverlay"]),
+    ...mapMutations(["setCiudad", "setOverlay","setSessionStart"]),
     handleScroll() {
       let alto = window.scrollY;
       this.scroll = alto > 89 ? true : false;
