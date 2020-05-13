@@ -16,7 +16,7 @@
 <script>
 import axios from "axios";
 import CardCategory from "../components/CardCategory";
-import Banner from "../components/Banner";
+import Banner from /* webpackPrefetch: true */ "../components/Banner";
 import Sponsor from "../components/Sponsor";
 import CardLoad from "../components/CardLoad";
 import PreguntasFrecuentes from "../components/PreguntasFrecuentes";
