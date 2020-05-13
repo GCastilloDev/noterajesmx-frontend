@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import Menu from "./components/Menu";
-import OverlayCiudades from "./components/OverlayCiudades";
-import Footer from "./components/Footer"
+import /* webpackPrefetch: true */ Menu from "./components/Menu";
+import /* webpackPrefetch: true */ OverlayCiudades from "./components/OverlayCiudades";
+import /* webpackPrefetch: true */ Footer from "./components/Footer"
 
 import { mapMutations } from "vuex";
 
