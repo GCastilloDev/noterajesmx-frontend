@@ -26,14 +26,15 @@
         "@vue/cli-plugin-router": "~4.3.0",
         "@vue/cli-plugin-vuex": "~4.3.0",
         "@vue/cli-service": "~4.3.0",
+        "compression-webpack-plugin": "^4.0.0",
+        "html-webpack-plugin": "^4.3.0",
         "next": "^9.4.0",
+        "preload-webpack-plugin": "^2.3.0",
         "sass": "^1.26.3",
         "sass-loader": "^8.0.2",
         "vue-cli-plugin-vuetify": "~2.0.5",
         "vue-template-compiler": "^2.6.11",
-        "vuetify-loader": "^1.3.0",
-        "preload-webpack-plugin": "^2.3.0",
-        "html-webpack-plugin": "^4.3.0"
+        "vuetify-loader": "^1.3.0"
     },
     "browserslist": [
         "> 1%",

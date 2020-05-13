@@ -1,9 +1,18 @@
+const CompressionWebpackPlugin = require("compression-webpack-plugin");
+
 module.exports = {
     configureWebpack: {
+        plugins: [
+            new CompressionWebpackPlugin({
+                filename: "[path].gz[query]",
+                algorithm: "gzip",
+                test: /\.(js|css)$/,
+            })
+        ],
         mode: 'production'
     },
     chainWebpack: config => {
-
+        config.plugins.delete('prefetch')
         config.plugin('preload').tap(options => {
             options[0].as = (entry) => {
                 if (/\.css$/.test(entry)) return 'style';
