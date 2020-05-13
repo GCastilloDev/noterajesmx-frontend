@@ -52,6 +52,8 @@ export default {
 </script>
 
 <style lang="css">
+@import url("https://cdn.jsdelivr.net/npm/@mdi/font@latest/css/materialdesignicons.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap");
 
