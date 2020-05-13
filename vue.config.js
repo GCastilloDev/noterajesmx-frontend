@@ -1,4 +1,5 @@
-const PreloadWebpackPlugin = require('preload-webpack-plugin');
+const PreloadWebpackPlugin = require(' preload-webpack-plugin ');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     "transpileDependencies": [
@@ -6,6 +7,7 @@ module.exports = {
     ],
     configureWebpack: {
         plugins: [
+            new HtmlWebpackPlugin(),
             new PreloadWebpackPlugin()
         ]
     }
