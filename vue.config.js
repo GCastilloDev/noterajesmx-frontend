@@ -1,9 +1,11 @@
 const CompressionPlugin = require('compression-webpack-plugin');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 
 module.exports = {
     configureWebpack: {
         mode: 'production',
         plugins: [
+            new VuetifyLoaderPlugin(),
             new CompressionPlugin({
                 test: /\.(js|css|woff2)(\?.*)?$/i,
                 algorithm: 'gzip',
