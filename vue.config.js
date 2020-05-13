@@ -1,5 +1,9 @@
 module.exports = {
+    configureWebpack: {
+        mode: 'production'
+    },
     chainWebpack: config => {
+
         config.plugin('preload').tap(options => {
             options[0].as = (entry) => {
                 if (/\.css$/.test(entry)) return 'style';
