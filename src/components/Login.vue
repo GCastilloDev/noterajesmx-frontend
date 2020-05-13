@@ -59,6 +59,7 @@
 <script>
 import { mapActions } from "vuex";
 import axios from "axios";
+import { VBtn } from 'vuetify/lib/components/VBtn';
 
 export default {
   name: "Login",
