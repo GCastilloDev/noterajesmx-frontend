@@ -5,7 +5,7 @@ module.exports = {
         mode: 'production',
         plugins: [
             new CompressionPlugin({
-                test: /\.(js|css)(\?.*)?$/i,
+                test: /\.(js|css|woff2)(\?.*)?$/i,
                 algorithm: 'gzip',
                 cache: true
             })
