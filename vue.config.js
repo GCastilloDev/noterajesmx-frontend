@@ -2,19 +2,6 @@ const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
     configureWebpack: {
-        plugins: [
-            new CompressionPlugin({
-                algorithm: 'gzip',
-                filename(info) {
-                    // info.file is the original asset filename
-                    // info.path is the path of the original asset
-                    // info.query is the query
-                    return `${info.path}.gz${info.query}`;
-                },
-                cache: true,
-                deleteOriginalAssets: true
-            }),
-        ],
         mode: 'production'
     },
     chainWebpack: config => {
