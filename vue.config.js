@@ -1,6 +1,5 @@
 module.exports = {
     chainWebpack: config => {
-        config.plugins.delete('prefetch')
         config.plugin('preload').tap(options => {
             options[0].as = (entry) => {
                 if (/\.css$/.test(entry)) return 'style';
@@ -13,5 +12,8 @@ module.exports = {
                 // options[0].fileBlacklist: [/\.files/, /\.to/, /\.exclude/]
             return options
         })
-    }
+    },
+    "transpileDependencies": [
+        "vuetify"
+    ]
 }
