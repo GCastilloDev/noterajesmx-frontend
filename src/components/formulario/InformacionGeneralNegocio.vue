@@ -234,6 +234,7 @@ export default {
         this.$emit("activarLoading", true);
         try {
           console.log(this.token);
+          console.log(this.data);
           const response = await axios.post(
             "http://lucy-coatza.herokuapp.com/store/create",
             this.data,

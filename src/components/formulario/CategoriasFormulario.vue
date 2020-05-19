@@ -48,7 +48,7 @@ export default {
     data: {
       categorias: []
     },
-    editar: false
+    editar: true
   }),
   props: {
     lectura: {
@@ -109,11 +109,26 @@ export default {
         console.warn("Debes de seleccionar al menos una categoría");
       } else {
         this.$emit("activarLoading", true);
-        await setTimeout(() => {
-          this.loading = false;
+        // Cabeceras
+        const config = {
+          headers: {
+            "X-CSRF-Token": this.token,
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          }
+        };
+        try {
+          const response = await axios.post(
+            "http://lucy-coatza.herokuapp.com/store/setCategories",
+            this.data,
+            config
+          );
+          console.warn(response);
           this.$emit("activarLoading", false);
           this.$emit("siguiente");
-        }, 3000);
+        } catch (error) {
+          console.warn(error);
+        }
       }
     }
   },

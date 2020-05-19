@@ -2,9 +2,7 @@
   <v-row>
     <v-col cols="12">
       <v-form ref="form" v-model="valid" lazy-validation>
-          <v-col cols="12">
-          {{data}}
-        </v-col>
+        <v-col cols="12">{{data}}</v-col>
         <v-col cols="12">
           <v-switch
             color="#24cc89"
@@ -17,7 +15,7 @@
           <v-textarea
             required
             dense
-            outlined=""
+            outlined
             color="#24cc89"
             background-color="blue-grey lighten-5"
             counter
@@ -36,30 +34,56 @@
 </template>
 
 <script>
+import axios from "axios";
+import { mapState } from "vuex";
+
 export default {
   name: "Descripcion",
   data: () => ({
     data: {
-      descripcion:"",
-        servicioDomicilio: false
+      descripcion: "",
+      servicioDomicilio: false
     },
     valid: true
   }),
   methods: {
     async siguiente() {
+      // Cabeceras
+      const config = {
+        headers: {
+          "X-CSRF-Token": this.token,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      };
       if (this.$refs.form.validate()) {
-      } else {
         this.$emit("activarLoading", true);
-        await setTimeout(() => {
+        try {
+          const response = await axios.post(
+            'http://lucy-coatza.herokuapp.com/store/setDescription',
+            this.data,
+            config
+          );
+
+          console.log(response);
+
           this.loading = false;
           this.$emit("activarLoading", false);
           this.$emit("siguiente");
+
+        } catch (error) {
+          console.log(error);
+        }
+      } else {
+        
+        await setTimeout(() => {
+          
         }, 3000);
       }
     }
+  },
+  computed: {
+    ...mapState(["token"])
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>

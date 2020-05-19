@@ -77,15 +77,6 @@
                 @siguiente="cambiarPaso"
               />
             </v-stepper-content>
-
-            <v-stepper-step color="verde" :complete="step > 8" step="8">Horario</v-stepper-step>
-            <v-stepper-content step="8">
-              <Horario
-                v-if="step == 8"
-                @activarLoading="activarLoading"
-                @siguiente="cambiarPaso"
-              />
-            </v-stepper-content>
           </v-stepper>
         </v-card>
       </v-col>
@@ -94,30 +85,20 @@
 </template>
 
 <script>
-import InformacionDeContacto from "../../components/formulario/InformacionDeContacto";
-import InformacionGeneralNegocio from "../../components/formulario/InformacionGeneralNegocio";
-import FotoPerfil from "../../components/formulario/FotoPerfil";
-import CategoriasFormulario from "../../components/formulario/CategoriasFormulario";
-import Descripcion from "../../components/formulario/Descripcion";
-import MediosPago from "../../components/formulario/MediosPago";
-import RedesSociales from "../../components/formulario/RedesSociales";
-import Horario from "../../components/formulario/Horario";
-
 
 export default {
   name: "CrearCuenta",
   components: {
-    InformacionDeContacto,
-    InformacionGeneralNegocio,
-    FotoPerfil,
-    CategoriasFormulario,
-    Descripcion,
-    MediosPago,
-    RedesSociales,
-    Horario
+    InformacionDeContacto: () => import('../../components/formulario/InformacionDeContacto'),
+    InformacionGeneralNegocio: () => import('../../components/formulario/InformacionGeneralNegocio'),
+    FotoPerfil: () => import('../../components/formulario/FotoPerfil'),
+    CategoriasFormulario: () => import('../../components/formulario/CategoriasFormulario'),
+    Descripcion: () => import('../../components/formulario/Descripcion'),
+    MediosPago: () => import('../../components/formulario/MediosPago'),
+    RedesSociales: () => import('../../components/formulario/RedesSociales')
   },
   data: () => ({
-    step: 2,
+    step: 1,
     carga: false
   }),
   methods: {

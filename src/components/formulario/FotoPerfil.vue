@@ -69,7 +69,7 @@ export default {
     data: {
       fotoPerfil: ""
     },
-    editar: false,
+    editar: true,
     imagen: "",
     imagenUrl: "",
     valid: true
@@ -119,6 +119,8 @@ export default {
           this.data,
           config
         );
+
+        console.log(response);
         // Cambia la url de la foto de perfil de la store
         this.cambiarFotoPerfil(url);
         
@@ -127,6 +129,7 @@ export default {
         this.editar = false;
         this.$emit("activarLoading", false);
         this.$emit("activarMensaje", mensaje);
+        this.$emit("siguiente");
       } catch (error) {
         mensaje.msg = "Hubo un error al actualizar su información.";
         this.editar = false;
@@ -135,16 +138,7 @@ export default {
       }
     },
     async siguiente() {
-      if (this.$refs.form.validate()) {
-        this.subirImagen();
-      } else {
-        this.$emit("activarLoading", true);
-        await setTimeout(() => {
-          this.loading = false;
-          this.$emit("activarLoading", false);
-          this.$emit("siguiente");
-        }, 3000);
-      }
+      this.subirImagen();
     },
     async actualizar() {
       this.subirImagen();

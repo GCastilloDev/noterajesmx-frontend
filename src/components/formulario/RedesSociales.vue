@@ -5,7 +5,7 @@
         Los links de redes sociales servirán para poder brindarle esa información a los futuros compradores, con la finalidad de redirigirlos y generar tráfico a sus redes sociales.
         <strong>Es importante que el link sea puesto de forma correcta para que funcione, ejemplo: https://www.facebook.com/noterajesmxoficial/</strong>
       </v-alert>
-      {{data}}
+      {{redesSociales}}
     </v-col>
 
     <v-col cols="4">
@@ -24,7 +24,7 @@
         outlined
         color="verde"
         dense
-        v-model="data.facebook"
+        v-model="redesSociales.facebook"
         label="Link de Facebook"
       ></v-text-field>
     </v-col>
@@ -45,7 +45,7 @@
         outlined
         color="verde"
         dense
-        v-model="data.instagram"
+        v-model="redesSociales.instagram"
         label="Link de Instagram"
       ></v-text-field>
     </v-col>
@@ -66,7 +66,7 @@
         outlined
         color="verde"
         dense
-        v-model="data.twitter"
+        v-model="redesSociales.twitter"
         label="Link de Twitter"
       ></v-text-field>
     </v-col>
@@ -77,10 +77,13 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import axios from 'axios';
+
 export default {
-  name: "MediosPago",
+  name: "RedesSociales",
   data: () => ({
-    data: {
+    redesSociales: {
       facebook: "",
       instagram: "",
       twitter: ""
@@ -91,21 +94,49 @@ export default {
   }),
   methods: {
     async siguiente() {
-      for (const key in this.data) {
-        if (this.data[key] == "") {
-          this.data[key] = false;
+      this.$emit("activarLoading", true);
+      // Cabeceras
+      const config = {
+        headers: {
+          "X-CSRF-Token": this.token,
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      };
+
+      for (const key in this.redesSociales) {
+        if (this.redesSociales[key] == "") {
+          this.redesSociales[key] = false;
         }
       }
 
-      console.log(this.data);
+      const data = {};
+      data.redesSociales = this.redesSociales;
 
-      this.$emit("activarLoading", true);
-      await setTimeout(() => {
+      console.log(data);
+
+      try {
+        const response = await axios.post(
+          "http://lucy-coatza.herokuapp.com/store/setRedesSociales",
+          data,
+          config
+        );
+
+        console.log(response);
+
         this.loading = false;
         this.$emit("activarLoading", false);
         this.$emit("siguiente");
-      }, 3000);
+
+      } catch (error) {
+        console.log(error);
+      }
+
+      
     }
+  },
+  computed: {
+    ...mapState(["token"])
   }
 };
 </script>
