@@ -20,7 +20,7 @@ import { mapMutations } from "vuex";
 export default {
   name: "App",
   data: () => ({
-    prueba: process.env.PRUEBA,
+    prueba: process.env.VUE_APP_PRUEBA,
     scroll: false,
     classComponent: "inactive"
   }),
