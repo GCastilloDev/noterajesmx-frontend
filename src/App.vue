@@ -6,7 +6,7 @@
       <router-view></router-view>
     </v-content>
     <Footer />
-    <h1>Esto es una prueba {{prueba}}</h1>
+    <h1>Esto es una prueba {{prueba}} y prueba2: {{prueba2}}</h1>
   </v-app>
 </template>
 
@@ -21,6 +21,7 @@ export default {
   name: "App",
   data: () => ({
     prueba: process.env.VUE_APP_PRUEBA,
+    prueba2: process.env.PRUEBA2,
     scroll: false,
     classComponent: "inactive"
   }),
