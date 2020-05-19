@@ -6,7 +6,6 @@
       <router-view></router-view>
     </v-content>
     <Footer />
-    <h1>Esto es una prueba {{prueba}} y prueba2: {{prueba2}}</h1>
   </v-app>
 </template>
 
@@ -20,8 +19,6 @@ import { mapMutations } from "vuex";
 export default {
   name: "App",
   data: () => ({
-    prueba: process.env.VUE_APP_PRUEBA,
-    prueba2: process.env.VUE_APP_PRUEBA2,
     scroll: false,
     classComponent: "inactive"
   }),
