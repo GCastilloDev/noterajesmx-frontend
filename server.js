@@ -15,5 +15,6 @@ app.get(/.*/, function(req, res) {
 })
 
 const port = process.env.PORT || 8080
+const prueba = process.env.VUE_APP_PRUEBA
 app.listen(port)
-console.log(`app is listening on port: ${port}`)
+console.log(`app is listening on port: ${port} y prueba ${prueba}`)
