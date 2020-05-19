@@ -21,7 +21,7 @@ export default {
   name: "App",
   data: () => ({
     prueba: process.env.VUE_APP_PRUEBA,
-    prueba2: process.env.PRUEBA2,
+    prueba2: process.env.VUE_APP_PRUEBA2,
     scroll: false,
     classComponent: "inactive"
   }),
