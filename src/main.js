@@ -9,8 +9,8 @@ import firebase from 'firebase/app'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
-    id: ['UA-164669315-1', 'UA-164669315-2'],
-    router
+  id: ['UA-164669315-1', 'UA-164669315-2', 'UA-164669315-3', 'UA-164669315-4'],
+  router,
 });
 
 firebase.initializeApp({
