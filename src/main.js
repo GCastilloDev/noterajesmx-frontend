@@ -9,23 +9,9 @@ import firebase from 'firebase/app'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
-    id: 'UA-164669315-1',
-    router,
-    autoTracking: {
-        pageviewTemplate(route) {
-            return {
-                page: route.path,
-                title: document.title,
-                location: window.location.href
-            }
-        },
-        screenview: true
-    },
-    debug: {
-        enabled: false
-    },
-    checkDuplicatedScript: true
-})
+    id: ['UA-164669315-1', 'UA-164669315-2'],
+    router
+});
 
 firebase.initializeApp({
     apiKey: "AIzaSyBN6h8z0HJLepLpOp9Fd19TH6D-LwBRLVo",
