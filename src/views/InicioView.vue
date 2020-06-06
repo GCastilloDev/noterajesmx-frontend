@@ -69,6 +69,8 @@ export default {
           src: element.svg
         });
       });
+      console.log('DATA');
+      console.log(data);
       this.apiRequest = data;
     }
   },
