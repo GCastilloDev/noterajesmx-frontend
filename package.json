@@ -10,7 +10,7 @@
     "dependencies": {
         "axios": "^0.19.2",
         "core-js": "^3.6.4",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "express-static-gzip": "^2.0.6",
         "firebase": "^7.14.1",
         "node": "^14.2.0",
